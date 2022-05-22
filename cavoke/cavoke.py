@@ -26,3 +26,10 @@ class Package(CMakePackageBase):
     def __init__(self):
         CMakePackageBase.__init__(self)
         self.subinfo.options.configure.args += ["-DBUILD_ALL=OFF", "-DBUILD_CLIENT=ON", "-DQT_MAJOR_VERSION=5"]
+        
+    def createPackage(self):
+        self.defines["appname"] = self.applicationExecutable
+        self.defines["apppath"] = "Applications/KDE/" + self.applicationExecutable + ".app"
+        self.defines["company"] = "Cavoke Team"
+        self.defines["shortcuts"] = [{"name" : self.subinfo.displayName , "target" : f"{self.defines['appname']}{CraftCore.compiler.executableSuffix}", "description" : self.subinfo.description}]
+        self.defines["icon"] = Path(self.buildDir()) / "client/resources/packaging/icon.ico"
