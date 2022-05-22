@@ -4,7 +4,7 @@ import info
 class subinfo(info.infoclass):
     def setTargets(self):
         self.displayName = "Cavoke"
-        self.description = "A really solid software package that does nifty things"
+        self.description = "A Platform for creating and hosting multiplayer turn-based board games"
         self.webpage = "https://cavoke.wlko.me"
         self.svnTargets["master"] = "https://github.com/cavoke-project/cavoke.git|master"
         self.svnTargets["develop"] = "https://github.com/cavoke-project/cavoke.git|develop"
