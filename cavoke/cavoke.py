@@ -27,6 +27,10 @@ class Package(CMakePackageBase):
         CMakePackageBase.__init__(self)
         self.subinfo.options.configure.args += ["-DBUILD_ALL=OFF", "-DBUILD_CLIENT=ON", "-DQT_MAJOR_VERSION=5"]
         
+    @property
+    def applicationExecutable(self):
+        return os.environ.get('ApplicationExecutable', 'cavoke_client')
+        
     def createPackage(self):
         self.defines["appname"] = self.applicationExecutable
         self.defines["apppath"] = "Applications/KDE/" + self.applicationExecutable + ".app"
