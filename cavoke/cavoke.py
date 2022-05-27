@@ -33,8 +33,9 @@ class Package(CMakePackageBase):
         
     def createPackage(self):
         self.defines["appname"] = self.applicationExecutable
-        self.defines["apppath"] = "Applications/KDE/" + self.defines["appname"] + ".app"
+        self.defines["apppath"] = "Applications/Cavoke/" + self.defines["appname"] + ".app"
         self.defines["company"] = "Cavoke Team"
-#         self.defines["icon"] = Path(self.buildDir()) / "client/resources/packaging/64-cavoke_client-icon.png"
+        self.defines["icon"] = os.path.join(self.sourceDir(), "client", "resources", "packaging", "64-apps-cavoke.png")
+        self.defines["shortcuts"] = [{"name" : self.subinfo.displayName, "target": f"bin/{self.applicationExecutable}.exe"}]
         
         return super().createPackage()
