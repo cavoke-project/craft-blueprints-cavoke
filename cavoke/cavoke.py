@@ -35,7 +35,7 @@ class Package(CMakePackageBase):
         self.defines["appname"] = self.applicationExecutable
         self.defines["apppath"] = "Applications/Cavoke/" + self.defines["appname"] + ".app"
         self.defines["company"] = "Cavoke Team"
-        self.defines["icon"] = os.path.join(self.sourceDir(), "client", "resources", "packaging", "64-apps-cavoke.png")
+        self.defines["icon"] = os.path.join(self.sourceDir(), "client", "resources", "packaging", "cavoke.ico")
         self.defines["shortcuts"] = [{"name" : self.subinfo.displayName, "target": f"bin/{self.applicationExecutable}.exe"}]
         
         return super().createPackage()
